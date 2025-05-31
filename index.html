@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src=""></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+  </script>
+    <style>
+      .image-row {
+          display: flex;
+          justify-content: space-between; /* Ensures images are spaced evenly */
+          align-items: center;
+          margin-top: 20px;
+      }
+      .image-row img {
+          flex-grow: auto; /* Allows each image to grow */
+          max-width: 35%; /* Limits the width of each image to one-third of the container */
+          height: auto; /* Maintains aspect ratio */
+      }
+        .cite {
+            margin-top: 40px;
+        }
+        .bibtex {
+            background-color: #f0f0f0;
+            padding: 2px;
+            border-left: 3px solid #007acc;
+            font-family: "Courier New", Courier, monospace;
+            white-space: pre;
+        }
+
+  </style>
+
+  <meta charset="utf-8">
+  <meta name="description" content="ARGUS: Hallucination and Omission Evaluation in Video-LLMs">
+  <meta name="keywords"
+    content="GPT-4, GPT-4o, Gemini, Foundation Model, Long Video Dataset, Long Video Benchmark, Question Answering, Hallucinations, Omissions">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARGUS: Hallucination and Omission Evaluation in Video-LLMs</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MFCT45H');</script>
+  <!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/tifa.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- <link rel="icon" href="static/images/argus_logo.png" type="image/png"> For .png file -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFCT45H" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;">
+              <!-- <img src="static/images/argus_logo.png" alt="Logo" style="height: 175px;"> Adjust the path and the margin as needed -->
+              ARGUS: Hallucination and Omission Evaluation in Video-LLMs
+            </h1>            
+            <div class="is-size-5">
+              <span class="author-block">
+                <a href="https://ruchitrawal.github.io/" style="font-weight:normal;">Ruchit Rawal</a>,
+                </span>
+              <span class="author-block">
+                <a href="https://rezashkv.github.io/" style="font-weight:normal;">Reza Shirkavand</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.cs.umd.edu/people/heng" style="font-weight:normal;">Heng Huang</a>,
+                  </span>
+              <span class="author-block">
+                  <a href="https://somepago.github.io/" style="font-weight:normal;">Gowthami Somepalli<sup>*</sup></a>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.cs.umd.edu/~tomg/" style="font-weight:normal;">Tom Goldstein<sup>*</sup></a>,
+                    </span>
+            </div>
+            
+  
+            <br>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><b style=" font-weight:normal"></b>University of Maryland, College Park</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">&nbsp;&nbsp;<sup>*</sup>Equal Contribution</span>
+            </div>
+
+
+            
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/tomg-group-umd/argus"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>ARGUS Benchmark</span>
+                  </a>
+                </span>
+
+                <!-- code Link. -->
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+    
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+      
+        <div style="padding-bottom: 5px;">
+          We present ARGUS, a novel framework to measure hallucinations (ArgusCost-H; lower-better) and omissions (ArgusCost-O; lower-better) in free-form video caption generation.
+      </div>
+      
+      <img src="./static/images/teaser_figure.png" alt="teaser" style="display: block; margin-top: 5px;">      
+
+      
+
+
+<h3 class="subtitle">
+    <style>
+      .subtitle a {
+        color: blue;
+      }
+    </style>
+Current evaluation strategies rely on a question-answering (QA) paradigm. We allow the model to generate a free-form caption first and then quantify it's degree of hallucinations and omissions.
+</h3>
+
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Teaser ---------------------------------------------------------------->
+  <section class="hero is-light">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="subtitle has-text-centered">
+          We introduce dual metrics <strong>ArgusCost-H</strong> (hallucination) and <strong>ArgusCost-O</strong> (omission) to quantify how well Video-LLMs stay
+          faithful <em>and</em> complete when generating free-form dense captions.
+        </h2>
+        <figure style="text-align:center;">
+          <img src="static/images/figure1_relationship.png" alt="Relationship between hallucination and omission" style="max-width:900px;width:60%;" />
+          <figcaption class="has-text-grey is-size-6">Figure 1 – Most models omit more than they hallucinate; Gemini-2.0-Flash leads with the lowest combined cost.</figcaption>
+        </figure>
+        <br />
+        <h3 class="title is-4">Key Contributions</h3>
+        <ul class="has-text-justified" style="margin-left:1.4em;">
+          <li>📊 <strong>ARGUS benchmark</strong> – 500 diverse videos with rich 477-word human captions and ≈19 evaluation points per clip.</li>
+          <li>⚖️ <strong>Dual-metric evaluation</strong> capturing both hallucination (ArgusCost-H) and coverage (ArgusCost-O) at the sentence level.</li>
+          <li>🏆 <strong>Comprehensive study</strong> of 23 Video-LLMs (18 open-source + 5 proprietary) revealing that even state-of-the-art models still hallucinate ~40% of the time.</li>
+          <li>📈 Checkout the <a href="">paper</a> for analyses on <em>scale</em>, <em>frame sampling</em>, and <em>prompt sensitivity</em>; providing actionable diagnostics for future model design.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Dataset ---------------------------------------------------------------->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-10">
+          <h2 class="title is-3">ArgusBench: What&#39;s inside?</h2>
+          <p class="content has-text-justified">
+          <ul class="has-text-justified" style="margin-left:1.4em;">
+            <li>🎥 ArgusBench draws <strong>500 videos</strong> (15 - 90 s).</li>
+            <li>🗿 Human annotators provide dense captions averaging <strong>477 words</strong> → <em>24.4 w/s</em> - an order-of-magnitude richer than prior datasets.</li>
+            <li>🔖 Every sentence is type-tagged (summary, visual description, dynamic action) enabling fine-grained cost accounting.</li>
+          </ul>
+          </p>
+          <div class="image-row">
+            <img src="static/images/clip_characteristics.png" alt="Clip characteristics" style="max-width:900px;width:100%;" />
+          </div>
+          <p class="has-text-grey is-size-7" style="margin-top:6px;">Figure 5 - Length, word-count and sentence-type statistics for ArgusBench.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" id="privacy-auditing">Cite Us</h2>
+        <div class="content has-text-justified">
+          <div class="bibtex" style="overflow-x: auto; white-space: nowrap; border: 1px solid #ddd; padding: 10px;">
+            <!-- @article{rawal2024cinepile,<br>
+            &nbsp;&nbsp;title={CinePile: A Long Video Question Answering Dataset and Benchmark},<br>
+            &nbsp;&nbsp;author={Rawal, Ruchit and Saifullah, Khalid and Basri, Ronen and Jacobs, David and Somepalli, Gowthami and Goldstein, Tom},<br>
+            &nbsp;&nbsp;journal={arXiv preprint arXiv:2405.08813},<br>
+            &nbsp;&nbsp;year={2024}<br>
+            } -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                  This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                    code</a> of this website,
+                  we just ask that you link back to this page in the footer.
+                  Please remember to remove the analytics code included in the header of the website which
+                  you do not want on your website.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
